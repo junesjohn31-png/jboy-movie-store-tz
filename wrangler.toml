@@ -1,0 +1,12 @@
+name = "jboy-movie-store-tz"
+compatibility_date = "2026-11-06"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "jboy-movie-store"
+database_id = "PASTE_YOUR_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "MOVIES_BUCKET"
+bucket_name = "jboy-movie-files"
