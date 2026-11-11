@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JBoy Movie Store TZ</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#080a10;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ background:#111827;
+ padding:18px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+.logo{
+ font-size:23px;
+ font-weight:bold;
+ color:#00d6b0;
+}
+nav a{
+ color:white;
+ text-decoration:none;
+ margin:0 10px;
+}
+.search{
+ padding:12px;
+ background:#202638;
+ border:0;
+ border-radius:20px;
+ color:white;
+ width:100%;
+}
+.hero{
+ min-height:370px;
+ padding:65px 30px;
+ background:linear-gradient(90deg,#080a10,#111827);
+}
+.hero h1{font-size:42px;color:#00d6b0}
+.hero p{color:#ccc}
+.btn{
+ display:inline-block;
+ background:#00c9a7;
+ color:#06110f;
+ padding:14px 24px;
+ border-radius:25px;
+ text-decoration:none;
+ font-weight:bold;
+}
+section{padding:25px}
+h2{color:#00d6b0}
+.movies{
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
+ gap:16px;
+}
+.movie{
+ background:#151b29;
+ border-radius:12px;
+ overflow:hidden;
+}
+.poster{
+ height:190px;
+ background:linear-gradient(145deg,#253b59,#10131d);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:35px;
+}
+.movie-info{padding:12px}
+.movie h3{font-size:15px}
+.price{color:#00d6b0}
+button{
+ background:#00c9a7;
+ border:0;
+ padding:10px;
+ border-radius:7px;
+ font-weight:bold;
+ cursor:pointer;
+ width:100%;
+}
+footer{
+ padding:30px;
+ text-align:center;
+ color:#888;
+ background:#111827;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">JBoy MOVIE STORE TZ</div>
+ <nav>
+  <a href="#">Home</a>
+  <a href="#movies">Movies</a>
+  <a href="#series">Series</a>
+ </nav>
+</header>
+
+<section class="hero">
+ <h1>JBoy Movie Store TZ</h1>
+ <p>Discover Movies, Watch Trailers & Enjoy Entertainment.</p>
+ <a href="#movies" class="btn">EXPLORE MOVIES</a>
+</section>
+
+<section id="movies">
+ <h2>🔥 Trending Movies</h2>
+ <input class="search" id="search"
+ placeholder="Search your favourite movie..."
+ oninput="findMovies()">
+
+ <br><br>
+ <div class="movies" id="movieList"></div>
+</section>
+
+<section id="series">
+ <h2>📺 Latest Series</h2>
+ <p>Coming Soon...</p>
+</section>
+
+<footer>
+ <div class="logo">JBoy Movie Store TZ</div>
+ <p>© 2026 JBoy Movie Store TZ</p>
+</footer>
+
+<script>
+const movies = [
+ {name:"Movie One",price:"TSh 1,000"},
+ {name:"Movie Two",price:"TSh 1,000"},
+ {name:"Movie Three",price:"TSh 1,500"},
+ {name:"Movie Four",price:"TSh 2,000"}
+];
+
+function showMovies(list){
+ const area=document.getElementById("movieList");
+ area.innerHTML="";
+ list.forEach(movie=>{
+  area.innerHTML+=`
+   <div class="movie">
+    <div class="poster">🎬</div>
+    <div class="movie-info">
+     <h3>${movie.name}</h3>
+     <p class="price">${movie.price}</p>
+     <button onclick="alert('Movie details coming soon')">
+      VIEW MOVIE
+     </button>
+    </div>
+   </div>`;
+ });
+}
+
+function findMovies(){
+ const q=document.getElementById("search").value.toLowerCase();
+ showMovies(movies.filter(m=>m.name.toLowerCase().includes(q)));
+}
+
+showMovies(movies);
+</script>
+
+</body>
+</html>
